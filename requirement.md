@@ -1,6 +1,12 @@
 Far funzionare lo slider partendo dall’html ricevuto.
 Al click su una freccia, l’immagine mostrata cambia.
 la lista delle thumbs deve essere generata tramite un v-for
+
+    - generare la lista
+    - event su freccia
+        - prendere id
+
+
 Bonus:
 1- al click su una thumb, visualizzare in grande l’immagine corrispondente
 2 - Al click sulle frecce, cambia l’immagine, ma si evidenzia anche la thumbnail corrispondente
