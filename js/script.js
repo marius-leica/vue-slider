@@ -34,15 +34,15 @@ const appVue = new Vue({
   data: {
     // varie chiavi necessarie all'app
     imgSlides: slides,
-    currentSlide: imgSlides[0],
   },
 
   // Conterrà una serie di funzioni
   methods: {
     // funzioni che useremo nell'app
     prevSlide() {},
-    nextSlide() {},
+    nextSlide() {
+      imgSlides[i++];
+      return imgSlides[i];
+    },
   },
 });
-
-console.log(imgSlides);
