@@ -19,39 +19,27 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
-                    <img :src="imgSlides.image" :alt="imgSlides.title" />
+                    <img :src="currentImg.image" :alt="currentImg.title" />
                     <div class="text">
-                        <h3>{{imgSlides.title}}</h3>
-                        <p>
-                            {{imgSlides.text}}
-                        </p>
+                        <h3>{{ currentImg.title }}</h3>
+                        <p>{{ currentImg.text }}</p>
                     </div>
                 </div>
 
                 <div class="thumbs">
-                    <div class="prev"></div>
+                    <div @click="prevSlide" class="prev"></div>
                     <div @click="nextSlide" class="next"></div>
-                    <div class="thumb active">
-                        <img src="img/01.jpg" alt="Svezia" />
+                    <div v-for="(image, i) in imgSlides" class="thumb" :class="{ active: i === currentIndex }">
+                        <img :src="imgSlides[i].image" :alt="imgSlides[i].title" />
                     </div>
-                    <div class="thumb">
-                        <img src="img/02.jpg" alt="Svizzera" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/03.jpg" alt="Gran Bretagna" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/04.jpg" alt="Germania" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/05.jpg" alt="Paradise" />
-                    </div>
+
                 </div>
 
             </div>
         </div>
 
     </div>
+    <a href=""></a>
 
     <script src="js/script.js"></script>
 </body>

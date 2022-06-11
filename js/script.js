@@ -34,15 +34,42 @@ const appVue = new Vue({
   data: {
     // varie chiavi necessarie all'app
     imgSlides: slides,
+    currentImg: slides[0],
+    currentIndex: 0,
+    isActive: false,
+    autoPlayEnabled: true,
   },
 
   // Conterrà una serie di funzioni
   methods: {
     // funzioni che useremo nell'app
-    prevSlide() {},
+    prevSlide() {
+      this.currentIndex--;
+      if (this.currentIndex < 0) {
+        this.currentIndex = this.imgSlides.length - 1;
+      }
+      this.currentImg = this.imgSlides[this.currentIndex];
+    },
+
     nextSlide() {
-      imgSlides[i++];
-      return imgSlides[i];
+      this.currentIndex++;
+
+      if (this.currentIndex >= this.imgSlides.length) {
+        this.currentIndex = 0;
+      }
+      this.currentImg = this.imgSlides[this.currentIndex];
+      if ((this.currentImg = this.imgSlides[this.currentIndex])) {
+        this.isActive = true;
+      }
+    },
+    autoPlay(autoPlayEnabled) {
+      if (autoPlayEnabled) {
+        setInterval(() => {
+          this.nextSlide();
+        }, 300);
+      } else {
+        this.autoPlayEnabled = false;
+      }
     },
   },
 });
